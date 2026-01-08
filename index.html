@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maintenance and updates on hyper.lol</title>
+<style>
+:root{
+  --accent:#7dd3fc;
+  --bg-overlay:rgba(6,6,8,0.55);
+  --card-bg:rgba(17,24,39,0.75);
+  --text:#e6eef6;
+  --muted:#bfcbd9;
+  --max-width:900px;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+}
+html,body{
+  height:100%;
+  margin:0;
+  background:#05060a;
+  color:var(--text);
+  overflow:auto;
+  scroll-behavior:smooth;
+}
+.bg-video-wrap{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  z-index:0;
+}
+.bg-video-wrap video{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%) scale(1.2);
+  min-width:100%;
+  min-height:100%;
+  object-fit:cover;
+  filter:blur(12px) brightness(0.6) saturate(1.05);
+  pointer-events:none;
+}
+.bg-overlay{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,0.35),rgba(0,0,0,0.55));
+  z-index:1;
+  pointer-events:none;
+}
+.page{
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding:48px 20px;
+}
+.card{
+  width:100%;
+  max-width:var(--max-width);
+  background:var(--card-bg);
+  border-radius:12px;
+  padding:28px;
+  box-shadow:0 10px 30px rgba(2,6,23,0.6);
+  backdrop-filter:blur(6px);
+  margin-bottom:60px;
+}
+h1{margin:0 0 6px 0;font-size:26px;}
+.meta{color:var(--muted);font-size:13px;margin-bottom:18px;}
+p{line-height:1.55;margin:0 0 14px 0;}
+pre{white-space:pre-wrap;background:rgba(255,255,255,0.02);border-radius:8px;padding:12px;color:var(--text);font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,"Roboto Mono","Courier New",monospace;font-size:13px;border:1px dashed rgba(255,255,255,0.04);}
+a{color:var(--accent);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.section-title{margin-top:18px;font-weight:600;}
+ul{margin:8px 0 14px 22px;}
+.credits{margin-top:18px;font-size:13px;color:var(--muted);}
+#overlay{
+  position:fixed;inset:0;background:#05060a;display:flex;justify-content:center;align-items:center;z-index:10;cursor:pointer;flex-direction:column;color:var(--text);transition:opacity 0.8s ease;
+}
+#overlay.hidden{opacity:0;pointer-events:none;}
+#overlay h1{font-size:32px;margin:0 0 20px 0;}
+#overlay p{font-size:16px;color:var(--muted);}
+.method-video{
+  width:100%;
+  border-radius:10px;
+  margin-top:10px;
+  border:1px solid rgba(255,255,255,0.1);
+  cursor:pointer;
+  transition:transform 0.2s ease,opacity 0.2s ease;
+}
+.method-video:hover{
+  transform:scale(1.02);
+  opacity:0.9;
+}
+</style>
+</head>
+<body>
+<div id="overlay">
+  <h1>Click to Continue</h1>
+</div>
+
+<div class="bg-video-wrap">
+  <video id="bgVideo" src="videoplayback.mp4" autoplay muted loop playsinline></video>
+</div>
+<div class="bg-overlay"></div>
+<audio id="bgAudio" src="weird.mp3" loop preload="auto"></audio>
+
+<main class="page">
+  <article class="card">
+    <header>
+      <h1>Maintenance and updates on hyper.lol. </h1>
+      <div class="meta">Posted by @landlucian on discord.</div>
+    </header>
+    <section>
+      <p>Hey everyone,</p>
+      <p>After much thought, i have decided to keep hyper.lol on hold for now. </p>
+      <p>Since I made, this whole project was over 2 years ago, i have learned a lot about making a cheat, and progress is going well. But since protction against cracks, and threats towards hyper.lol i have decided that i will not be updating this site, discord, and other things until i am sure that hyper.lol is finished.</p>
+      <p>hyper.lol will always be my main project, and i have high hopes for it in the future. But right now with all of these threats, and people reporting the website, the main hosting got taken down. So, the website will be like this for a while.</p>
+
+      <p>to the people who have been sending crack and other threats towards hyper.lol. you will be fucking with the wrong person.</p>
+
+    </section>
+  </article>
+</main>
+
+<script>
+const overlay = document.getElementById('overlay');
+const audio = document.getElementById('bgAudio');
+const method1 = document.getElementById('method1Video');
+const method2 = document.getElementById('method2Video');
+
+overlay.addEventListener('click', () => {
+  overlay.classList.add('hidden');
+  audio.play();
+});
+
+function setupVideoControl(video) {
+  video.addEventListener('play', () => {
+    if (!audio.paused) audio.pause();
+  });
+  video.addEventListener('ended', () => {
+    audio.play();
+  });
+  video.addEventListener('pause', () => {
+    if (video.currentTime < video.duration) {
+      audio.play();
+    }
+  });
+}
+
+setupVideoControl(method1);
+setupVideoControl(method2);
+</script>
+</body>
+</html>
