@@ -91,6 +91,32 @@ ul{margin:8px 0 14px 22px;}
   transform:scale(1.02);
   opacity:0.9;
 }
+#volume-control{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:5;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:rgba(17,24,39,0.75);
+  backdrop-filter:blur(6px);
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 6px 20px rgba(0,0,0,0.4);
+}
+
+#volume-control label{
+  font-size:13px;
+  color:var(--muted);
+}
+
+#volume-control input[type="range"]{
+  width:120px;
+  cursor:pointer;
+}
 </style>
 </head>
 <body>
@@ -102,36 +128,35 @@ ul{margin:8px 0 14px 22px;}
   <video id="bgVideo" src="videoplayback.mp4" autoplay muted loop playsinline></video>
 </div>
 <div class="bg-overlay"></div>
-<audio id="bgAudio" src="weird.mp3" loop preload="auto"></audio>
+<audio id="bgAudio" src="kwik.mp3" loop preload="auto"></audio>
 
 <main class="page">
   <article class="card">
     <header>
-      <h1>Maintenance and updates on hyper.lol. </h1>
+      <h1>Update on hyper.lol. </h1>
       <div class="meta">Posted by @landlucian on discord.</div>
     </header>
     <section>
       <p>Hey everyone,</p>
-      <p>After much thought, i have decided to keep hyper.lol on hold for now. </p>
-      <p>Since I made, this whole project was over 2 years ago, i have learned a lot about making a cheat, and progress is going well. But since protction against cracks, and threats towards hyper.lol i have decided that i will not be updating this site, discord, and other things until i am sure that hyper.lol is finished.</p>
-      <p>hyper.lol will always be my main project, and i have high hopes for it in the future. But right now with all of these threats, and people reporting the website, the main hosting got taken down. So, the website will be like this for a while.</p>
-
-      <p>to the people who have been sending crack and other threats towards hyper.lol. you fucked with the wrong person.</p>
+      <p>Progress has gotten so much better. </p>
+      <p>Everything is done, but i have decided to keep the website in maintenance mode for now. This means that I am going to (most likely) release a new version of hyper.lol in the near future.</p>
+      <p>But for now please wait. Have a little more patience. We are coming back 👀</p>
 
     </section>
   </article>
 </main>
+
+<div id="volume-control">
+  <label for="volume">Volume</label>
+  <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5">
+</div>
+
 
 <script>
 const overlay = document.getElementById('overlay');
 const audio = document.getElementById('bgAudio');
 const method1 = document.getElementById('method1Video');
 const method2 = document.getElementById('method2Video');
-
-overlay.addEventListener('click', () => {
-  overlay.classList.add('hidden');
-  audio.play();
-});
 
 function setupVideoControl(video) {
   video.addEventListener('play', () => {
@@ -146,6 +171,24 @@ function setupVideoControl(video) {
     }
   });
 }
+
+overlay.addEventListener('click', () => {
+  overlay.classList.add('hidden');
+  audio.play();
+});
+
+const volumeSlider = document.getElementById('volume');
+
+audio.volume = volumeSlider.value;
+
+overlay.addEventListener('click', () => {
+  overlay.classList.add('hidden');
+  audio.play();
+});
+
+volumeSlider.addEventListener('input', () => {
+  audio.volume = volumeSlider.value;
+});
 
 setupVideoControl(method1);
 setupVideoControl(method2);
