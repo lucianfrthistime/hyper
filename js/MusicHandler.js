@@ -1,14 +1,15 @@
 function ToggleMusic() {
-    const Music = document.getElementById('MusicPlayer')
-    const MusicImage = document.getElementById('MusicImage')
+    const Music = document.getElementById('MusicPlayer');
+    const MusicImage = document.getElementById('MusicImage');
+    if (!Music || !MusicImage) return;
 
-    Music.volume = 0.18
+    Music.volume = 0.18;
+
     if (Music.paused || Music.ended) {
-        Music.play()
-        Music.volume = 1
-        MusicImage.src = "Icons/Play.png"
+        Music.play();
+        MusicImage.src = "images/Play.png";
     } else {
-        Music.pause()
-        MusicImage.src = "Icons/Pause.png"
+        Music.pause();
+        MusicImage.src = "images/Pause.png";
     }
 }

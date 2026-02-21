@@ -1,194 +1,154 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>gethyper.lol</title>
-    <meta name="description" content="wow is ts hyper.lol">
-    <meta content="gethyper.lol" property="og:title">
-    <meta content="wow is ts hyper.lol" property="og:description">
-    <meta content="https://gethyper.lol" property="og:url">
-    <meta content="images/favicon.ico" property="og:image">
-    <meta content="#fcfcfc" data-react-helmet="true" name="theme-color">
-    <meta name="google-adsense-account" content="ca-pub-5252186238576840">
-
+    <title>gethyper.lol | Lucian</title>
+    <meta name="description" content="Personal portfolio and project showcase of Lucian (@lucianland). Developer, creator, and enthusiast.">
+    
+    <meta property="og:title" content="gethyper.lol | Lucian">
+    <meta property="og:description" content="Exploring the intersection of code and creativity. Check out my projects and social links.">
+    <meta property="og:url" content="https://gethyper.lol">
+    <meta property="og:image" content="images/favicon.ico">
+    <meta name="theme-color" content="#09090b">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/MusicHandler.js"></script>
-    <script src="js/Init.js"></script>
-  </head>
-  <body>
-    <div class="CustomCursor"><img src="images/Cursor.png"></div>
+    <script src="js/MusicHandler.js" defer></script>
+    <script src="js/Init.js" defer></script>
+</head>
+<body>
+    <div class="CustomCursor">
+        <img src="images/Cursor.png" alt="">
+    </div>
+    
     <div id="particles-js"></div>
 
-    <div class="Main">
-      <audio id="MusicPlayer" src="media/Music.mp3" loop="" preload="auto"></audio>
-      <div class="SocialRow">
-        <button class="MusicButton">
-          <img src="images/favicon.ico" alt="Favicon" width="20" height="20" class="SocialIcon">
-          <a class="Link" href="">gethyper.lol</a>
-        </button>
-        <button class="MusicButton" onclick="ToggleMusic()">
-          <img src="images/Pause.png" id="MusicImage" alt="Icon" width="17" height="17" class="SocialIcon">
-          Toggle Music
-        </button>
-      </div>
+    <main class="Main">
+        <audio id="MusicPlayer" src="media/Music.mp3" loop preload="auto"></audio>
+        
+        <nav class="SocialRow glass">
+            <button class="MusicButton">
+                <img src="images/favicon.ico" alt="" width="20" height="20" class="SocialIcon">
+                <a class="Link" href="#">gethyper.lol</a>
+            </button>
+            <button class="MusicButton" onclick="ToggleMusic()">
+                <img src="images/Pause.png" id="MusicImage" alt="Toggle Music" width="17" height="17" class="SocialIcon">
+                <span>Toggle Music</span>
+            </button>
+        </nav>
 
-      <h1><span id="Typewriter">Hello there!</span> <span class="Wave">👋</span></h1>
-      <p>
-        Hi, I'm Lucian. Known online as
-        <a style="color: whitesmoke">lucianland</a> across most platforms.<br><br>
-        I'm a small developer working on games, and other stuff.<br><br>
-        Feel free to reach out if you'd like. My social links are below!
-      </p>
-      <div class="SocialRow">
-        <button class="SocialButton">
-          <img src="images/Discord.png" alt="Discord Icon" width="17" height="17" class="SocialIcon">
-          <a class="Link" href="https://discord.com/users/1410379998250139824" target="_blank">@landlucian</a>
-        </button>
+        <section class="Hero">
+            <h1><span id="Typewriter">Hello there!</span> <span class="Wave">👋</span></h1>
+            <p>
+                Hi, I'm Lucian. Known online as <span class="Highlight">lucianland</span> across most platforms.
+            </p>
+            <p>
+                I'm a developer building games and exploring interesting tech. 
+                Want to connect? Find my links below.
+            </p>
+        </section>
 
-        <a class="TextSep">|</a>
+        <div class="SocialRow">
+            <a href="https://discord.com/users/1410379998250139824" target="_blank" class="SocialButton glass">
+                <img src="images/Discord.png" alt="" width="17" height="17" class="SocialIcon">
+                <span>@landlucian</span>
+            </a>
 
-        <button class="SocialButton">
-          <img src="images/Github.png" alt="GitHub Icon" width="17" height="17" class="SocialIcon">
-          <a class="Link" href="https://github.com/lucianfrthistime" target="_blank">GitHub</a>
-        </button>
-        <button class="SocialButton">
-          <img src="images/YouTube.png" alt="YouTube Icon" width="17" height="17" class="SocialIcon">
-          <a class="Link" href="https://www.youtube.com/@lucianland" target="_blank">YouTube</a>
-        </button>
-        <button class="SocialButton">
-          <img src="images/TikTok.png" alt="TikTok Icon" width="15" height="15" class="SocialIcon">
-          <a class="Link" href="https://www.tiktok.com/@lucianagain" target="_blank">TikTok</a>
-        </button>
+            <div class="Separator dot"></div>
 
-      </div>
-      <div class="Separator"></div>
+            <a href="https://github.com/lucianfrthistime" target="_blank" class="SocialButton glass">
+                <img src="images/Github.png" alt="" width="17" height="17" class="SocialIcon">
+                <span>GitHub</span>
+            </a>
+            <a href="https://www.youtube.com/@lucianland" target="_blank" class="SocialButton glass">
+                <img src="images/YouTube.png" alt="" width="17" height="17" class="SocialIcon">
+                <span>YouTube</span>
+            </a>
+            <a href="https://tiktok.com/@meowpurrpur" target="_blank" class="SocialButton glass">
+                <img src="images/TikTok.png" alt="" width="15" height="15" class="SocialIcon">
+                <span>TikTok</span>
+            </a>
+        </div>
 
-      <h3>Programming Experience:</h3>
-      <div class="Languages">
-        <button class="LanguageContainer">
-          <img src="images/JS.png" alt="JavaScript Icon" width="20" height="20" class="SocialIcon">
-          <a>JavaScript - Fluent</a>
-        </button>
-        <button class="LanguageContainer">
-          <img src="images/Python.png" alt="Python Icon" width="20" height="20" class="SocialIcon">
-          <a>Python - Fluent</a>
-        </button>
-        <button class="LanguageContainer">
-          <img src="images/CPP.png" alt="C++ Icon" width="20" height="20" class="SocialIcon">
-          <a>C++ - Fluent</a>
-        </button>
-        <button class="LanguageContainer">
-          <img src="images/CSharp.png" alt="C# Icon" width="20" height="20" class="SocialIcon">
-          <a>C# - Fluent</a>
-        </button>
-        <button class="LanguageContainer">
-          <img src="images/Rust.png" alt="Rust Icon" width="20" height="20" class="SocialIcon">
-          <a>Rust - Intermediate</a>
-        </button>
-        <button class="LanguageContainer">
-          <img src="images/Go.png" alt="Go Icon" width="20" height="20" class="SocialIcon">
-          <a>Go - Intermediate</a>
-        </button>
-      </div>
-    </div>
-  <script src="js/particles.js"></script>
-  <script>
-    particlesJS("particles-js", {
-      particles: {
-        number: {
-          value: 50,
-          density: {
-            enable: false,
-            value_area: 500,
-          },
-        },
-        color: {
-          value: ["#FAFAFA"],
-        },
+        <div class="Separator-Line"></div>
 
-        shape: {
-          type: "circle",
-          stroke: {
-            width: 0,
-            color: "#fff",
-          },
-          polygon: {
-            nb_sides: 5,
-          },
-          image: {
-            src: "img/github.svg",
-            width: 100,
-            height: 100,
-          },
-        },
-        opacity: {
-          value: 0.6,
-          random: true,
-          anim: {
-            enable: true,
-            speed: 1,
-            opacity_min: 0.1,
-            sync: false,
-          },
-        },
-        size: {
-          value: 3,
-          random: true,
-          anim: {
-            enable: true,
-            speed: 1,
-            size_min: 0.1,
-            sync: true,
-          },
-        },
-        line_linked: {
-          enable: false,
-          distance: 120,
-          color: "#ffffff",
-          opacity: 0.4,
-          width: 1,
-        },
-      },
-      interactivity: {
-        detect_on: "window",
-        events: {
-          onhover: {
-            enable: false,
-            mode: "grab",
-          },
-          onclick: {
-            enable: true,
-            mode: "repulse",
-          },
-          resize: true,
-        },
-        modes: {
-          grab: {
-            distance: 140,
-            line_linked: {
-              opacity: 1,
+        <section class="Skills">
+            <h3>Programming Experience:</h3>
+            <div class="Languages">
+                <div class="LanguageContainer glass">
+                    <img src="images/JS.png" alt="" width="20" height="20" class="SocialIcon">
+                    <span>JavaScript <span class="tag">Fluent</span></span>
+                </div>
+                <div class="LanguageContainer glass">
+                    <img src="images/Python.png" alt="" width="20" height="20" class="SocialIcon">
+                    <span>Python <span class="tag">Fluent</span></span>
+                </div>
+                <div class="LanguageContainer glass">
+                    <img src="images/CPP.png" alt="" width="20" height="20" class="SocialIcon">
+                    <span>C++ <span class="tag">Fluent</span></span>
+                </div>
+                <div class="LanguageContainer glass">
+                    <img src="images/CSharp.png" alt="" width="20" height="20" class="SocialIcon">
+                    <span>C# <span class="tag">Fluent</span></span>
+                </div>
+                <div class="LanguageContainer glass">
+                    <img src="images/Rust.png" alt="" width="20" height="20" class="SocialIcon">
+                    <span>Rust <span class="tag">Intermediate</span></span>
+                </div>
+                <div class="LanguageContainer glass">
+                    <img src="images/Go.png" alt="" width="20" height="20" class="SocialIcon">
+                    <span>Go <span class="tag">Intermediate</span></span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/particles.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 60, density: { enable: true, value_area: 800 } },
+                color: { value: "#ffffff" },
+                shape: { type: "circle" },
+                opacity: {
+                    value: 0.3,
+                    random: true,
+                    anim: { enable: true, speed: 0.5, opacity_min: 0.1, sync: false }
+                },
+                size: {
+                    value: 2,
+                    random: true,
+                    anim: { enable: true, speed: 2, size_min: 0.1, sync: false }
+                },
+                line_linked: { enable: false },
+                move: {
+                    enable: true,
+                    speed: 1,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false,
+                }
             },
-          },
-          bubble: {
-            distance: 400,
-            size: 40,
-            duration: 2,
-            opacity: 8,
-            speed: 3,
-          },
-          repulse: {
-            distance: 150,
-            duration: 1.5,
-          },
-          push: {
-            particles_nb: 4,
-          },
-          remove: {
-            particles_nb: 2,
-          },
-        },
-      },
-      retina_detect: true,
-    });
-  </script>
-</body></html>
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "bubble" },
+                    onclick: { enable: true, mode: "push" },
+                    resize: true
+                },
+                modes: {
+                    bubble: { distance: 200, size: 4, duration: 2, opacity: 0.8, speed: 3 },
+                    push: { particles_nb: 4 }
+                }
+            },
+            retina_detect: true
+        });
+    </script>
+</body>
+</html>

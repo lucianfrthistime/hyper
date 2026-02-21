@@ -1,193 +1,207 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
+:root {
+  --bg: #09090b;
+  --text: #fafafa;
+  --text-dim: #a1a1aa;
+  --accent: #8b5cf6;
+  --accent-glow: rgba(139, 92, 246, 0.5);
+  --glass: rgba(23, 23, 27, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --font-main: 'Outfit', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
 
 * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   cursor: none;
 }
 
 body {
-  background-color: #090909;
-  font-family: "DM Mono";
-  font-style: normal;
-  font-display: swap;
-  color: white;
-}
-
-.CustomCursor {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background-color: none;
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s;
-  z-index: 99;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
 }
 
 #particles-js {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   z-index: -1;
 }
 
-::-moz-selection,
-::selection {
-  background-color: transparent;
+.CustomCursor {
+  position: fixed;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease-out;
 }
 
-h1 {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-  font-weight: 500;
-}
-h2,
-h3 {
-  font-size: 1.5rem;
-  line-height: 2rem;
-  font-display: none;
-  font-weight: 500;
-}
-p {
-  color: #8f8f8f;
-  font-display: none;
-  font-weight: 400;
-  max-width: 75vw;
+.CustomCursor img {
+  width: 100%;
+  height: 100%;
 }
 
 .Main {
-  padding-left: 7vw;
-  padding-right: 7vw;
-  padding-top: 7vh;
-  padding-bottom: 7vh;
-}
-
-.ProjectContainer {
-  display: block;
-  border-style: none;
-  border-radius: 15px;
-  background-color: #171717;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  padding-left: 13px;
-  padding-right: 13px;
-  align-items: center;
-  gap: 5px;
-  text-decoration: none;
-  max-width: 80vw;
-  color: #a3a3a3;
-  font-family: "DM Mono";
-  font-style: normal;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  font-size: 1rem;
-}
-
-.MusicButton,
-.LanguageContainer,
-.SocialButton {
-  display: block;
-  border-style: solid;
-  border-color: #414141;
-  border-width: 0.5px;
-  border-radius: 18px;
-  background-color: #171717;
-  padding: 17px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
   display: flex;
-  align-items: center;
-  gap: 5px;
-  text-decoration: none;
-  color: #a3a3a3;
-  font-family: "DM Mono";
-  font-style: normal;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-direction: column;
+  gap: 3rem;
 }
 
-.SocialButton {
-  height: 25px;
-}
-.MusicButton,
-.LanguageContainer {
-  height: 30px;
-  margin-bottom: 10px;
-}
-
-.MusicButton:hover,
-.LanguageContainer:hover,
-.SocialButton:hover,
-.ProjectContainer:hover {
-  transform: scale(1.05);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+.glass {
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.Separator {
-  height: 5px;
-  background: linear-gradient(
-    90deg,
-    #ff6f61,
-    #ffca28,
-    #4caf50,
-    #2196f3,
-    #9c27b0
-  );
-  background-size: 300% 300%;
-  animation: SeperatorAnimation 10s ease infinite;
-  border: none;
-  border-radius: 10px;
-  margin: 20px 0;
-}
-
-@keyframes SeperatorAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.SocialRow, .Languages {
-  padding-bottom: 10px;
+.SocialRow {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
+  gap: 1rem;
 }
 
-.SocialIcon {
-  display: block;
+nav.SocialRow {
+  padding: 0.75rem;
+  width: fit-content;
 }
 
-.Link {
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: none;
+}
+
+.MusicButton,
+.SocialButton,
+.LanguageContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1.2rem;
   text-decoration: none;
-  color: #a3a3a3;
-  font-family: "DM Mono";
-  font-style: normal;
-  display: block;
+  color: var(--text-dim);
+  font-weight: 500;
+  font-size: 0.95rem;
 }
 
-.TextSep {
-  font-size: 1.75rem;
-  color: #707070;
+.MusicButton:hover,
+.SocialButton:hover,
+.LanguageContainer:hover {
+  color: var(--text);
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: 0 8px 20px -8px var(--accent-glow);
+}
+
+.Hero h1 {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  background: linear-gradient(to bottom right, #fff 50%, #a1a1aa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.Hero p {
+  font-size: 1.15rem;
+  color: var(--text-dim);
+  max-width: 600px;
+  margin-bottom: 1rem;
+}
+
+.Highlight {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.Separator-Line {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
+}
+
+.Separator.dot {
+  width: 4px;
+  height: 4px;
+  background: var(--glass-border);
+  border-radius: 50%;
+}
+
+.Skills h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  color: var(--text-dim);
+}
+
+.Languages {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.tag {
+  font-size: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.1rem 0.5rem;
+  border-radius: 4px;
+  margin-left: auto;
+  color: var(--accent);
+  font-family: var(--font-mono);
 }
 
 .Wave {
   display: inline-block;
-  animation: WaveAnim 2.5s infinite ease-in-out;
+  animation: wave 2s infinite;
   transform-origin: 70% 70%;
 }
 
-@keyframes WaveAnim {
-  0% { transform: rotate(0deg); }
-  10% { transform: rotate(20deg); }
-  20% { transform: rotate(-10deg); }
-  30% { transform: rotate(20deg); }
-  40% { transform: rotate(-5deg); }
-  50% { transform: rotate(0deg); }
+@keyframes wave {
 
-  100% { transform: rotate(0deg); }
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  20% {
+    transform: rotate(-10deg);
+  }
+
+  40% {
+    transform: rotate(15deg);
+  }
+
+  60% {
+    transform: rotate(-10deg);
+  }
+
+  80% {
+    transform: rotate(10deg);
+  }
+}
+
+@media (max-width: 640px) {
+  .Main {
+    padding: 2rem 1.5rem;
+  }
+
+  .Languages {
+    grid-template-columns: 1fr 1fr;
+  }
 }

@@ -6,14 +6,16 @@ let IsDeleting = false;
 function TypeLoop() {
   const TextList = [
     "Hello there!",
-    "Im watching you.",
-    "If you did not know this took a long time to make.",
+    "I'm watching you.",
+    "If you didn't know, this took a long time to make.",
     "Bonjour!",
     "My favorite food is nothing.",
-    "Note that valorant sucks.",
+    "Note that Valorant sucks.",
   ];
 
   const Element = document.getElementById("Typewriter");
+  if (!Element) return;
+
   const FullText = TextList[Index];
 
   if (!IsDeleting) {
@@ -21,7 +23,7 @@ function TypeLoop() {
     CharIndex++;
     if (CurrentText === FullText) {
       IsDeleting = true;
-      setTimeout(TypeLoop, 3000);
+      setTimeout(TypeLoop, 2500);
       Element.textContent = CurrentText;
       return;
     }
@@ -35,21 +37,21 @@ function TypeLoop() {
   }
 
   Element.textContent = CurrentText;
-  const Speed = IsDeleting ? 60 : 90;
+  const Speed = IsDeleting ? 40 : 80;
   setTimeout(TypeLoop, Speed);
 }
 
-window.onload = function () {
+window.addEventListener("load", () => {
   const Cursor = document.querySelector(".CustomCursor");
-  let CursorX = 0,
-    CursorY = 0;
-  let TargetX = 0,
-    TargetY = 0;
-  const Easing = 0.2;
+  if (!Cursor) return;
+
+  let CursorX = 0, CursorY = 0;
+  let TargetX = 0, TargetY = 0;
+  const Easing = 0.15;
 
   document.addEventListener("mousemove", (e) => {
-    TargetX = e.clientX + window.scrollX;
-    TargetY = e.clientY + window.scrollY;
+    TargetX = e.clientX;
+    TargetY = e.clientY;
   });
 
   function AnimateCursor() {
@@ -63,7 +65,6 @@ window.onload = function () {
 
   AnimateCursor();
   TypeLoop();
-  document.oncontextmenu = document.body.oncontextmenu = function () {
-    return false;
-  };
-};
+
+  document.addEventListener("contextmenu", (e) => e.preventDefault());
+});
