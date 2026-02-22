@@ -75,6 +75,9 @@ body {
 nav.SocialRow {
   padding: 0.75rem;
   width: fit-content;
+  position: relative;
+  z-index: 1000;
+  pointer-events: auto;
 }
 
 button {
@@ -96,6 +99,73 @@ button {
   color: var(--text-dim);
   font-weight: 500;
   font-size: 0.95rem;
+}
+
+.NavLogo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-left: 0.5rem;
+}
+
+.HeartIcon {
+  image-rendering: pixelated;
+}
+
+.SiteLink {
+  color: #0047ff !important;
+  text-decoration: underline !important;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.MusicControls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.VolumeSlider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100px;
+  height: 6px;
+  background: var(--glass-border);
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  pointer-events: auto;
+  user-select: none;
+}
+
+.VolumeSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--accent-glow);
+  cursor: grab;
+  pointer-events: auto;
+  border: 2px solid #fff;
+}
+
+.VolumeSlider::-webkit-slider-thumb:active {
+  cursor: grabbing;
+}
+
+.VolumeSlider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: var(--accent);
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 12px var(--accent-glow);
+  cursor: grab;
+  pointer-events: auto;
 }
 
 .MusicButton:hover,
@@ -202,6 +272,78 @@ button {
   }
 
   .Languages {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Projects Section */
+.Projects h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--text-dim);
+}
+
+.Projects .Desc {
+  color: var(--text-dim);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.ProjectGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.ProjectContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  text-decoration: none;
+  border: 1px solid var(--glass-border);
+}
+
+.ProjectHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.ProjectTitle {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.ProjectTitle .dim {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  font-weight: 400;
+}
+
+.ProjectDesc {
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
+.ProjectContainer:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 12px 30px -10px var(--accent-glow);
+}
+
+.ProjectContainer:hover .ProjectTitle {
+  color: var(--accent);
+}
+
+@media (min-width: 768px) {
+  .ProjectGrid {
     grid-template-columns: 1fr 1fr;
   }
 }
