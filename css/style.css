@@ -26,10 +26,40 @@ body {
   min-height: 100vh;
 }
 
+.VideoBackground {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  background-color: var(--bg);
+}
+
+.VideoBackground video {
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  filter: blur(40px) brightness(0.6);
+  opacity: 0.6;
+}
+
+.VideoOverlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent, rgba(9, 9, 11, 0.4));
+  z-index: -1;
+}
+
 #particles-js {
   position: fixed;
   inset: 0;
   z-index: -1;
+  pointer-events: none;
 }
 
 .CustomCursor {

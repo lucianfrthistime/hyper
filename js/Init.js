@@ -3,6 +3,25 @@ let CharIndex = 0;
 let CurrentText = "";
 let IsDeleting = false;
 
+function SetRandomBackgroundVideo() {
+  const VideoList = [
+    "glavevideo1.mp4",
+    "glaivevideo2.mp4",
+    "haunted.mp4"
+  ];
+
+  const RandomVideo = VideoList[Math.floor(Math.random() * VideoList.length)];
+  const VideoElement = document.getElementById("BgVideo");
+
+  if (VideoElement) {
+    const Source = VideoElement.querySelector("source");
+    if (Source) {
+      Source.src = `videos/${RandomVideo}`;
+      VideoElement.load();
+    }
+  }
+}
+
 function TypeLoop() {
   const TextList = [
     "Hello there!",
@@ -65,6 +84,7 @@ window.addEventListener("load", () => {
 
   AnimateCursor();
   TypeLoop();
+  SetRandomBackgroundVideo();
 
   document.addEventListener("contextmenu", (e) => e.preventDefault());
 });
