@@ -22,7 +22,8 @@ body {
   color: var(--text);
   font-family: var(--font-main);
   line-height: 1.6;
-  overflow-x: hidden;
+  overflow: hidden;
+  /* Hide overflow during loading */
   min-height: 100vh;
 }
 
@@ -376,4 +377,134 @@ button {
   .ProjectGrid {
     grid-template-columns: 1fr 1fr;
   }
+}
+
+/* Ubuntu Loading Screen */
+#LoadingScreen {
+  position: fixed;
+  inset: 0;
+  background-color: #000;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  overflow: hidden;
+  pointer-events: none;
+  transition: opacity 0.8s ease-in-out, visibility 0.8s;
+}
+
+#LoadingScreen.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.TerminalContainer {
+  max-width: 800px;
+  width: 100%;
+}
+
+.TerminalLine {
+  margin-bottom: 0.2rem;
+  opacity: 0;
+  transform: translateY(5px);
+  animation: fadeInLine 0.1s forwards;
+}
+
+.ok {
+  color: #50fa7b;
+}
+
+.info {
+  color: #8be9fd;
+}
+
+.warn {
+  color: #f1fa8c;
+}
+
+.error {
+  color: #ff5555;
+}
+
+@keyframes fadeInLine {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Discord Status Card */
+.DiscordCard {
+  margin-top: 1rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.DiscordAvatarWrapper {
+  position: relative;
+  width: 48px;
+  height: 48px;
+}
+
+.DiscordAvatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid var(--glass-border);
+}
+
+.DiscordStatusIndicator {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #17171b;
+  background-color: #747f8d;
+}
+
+.status-online {
+  background-color: #23a559;
+}
+
+.status-idle {
+  background-color: #f0b232;
+}
+
+.status-dnd {
+  background-color: #f23f43;
+}
+
+.status-offline {
+  background-color: #747f8d;
+}
+
+.DiscordInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.DiscordUsername {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.DiscordStatus {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+.DiscordActivity {
+  font-size: 0.75rem;
+  color: var(--accent);
+  margin-top: 0.1rem;
 }
