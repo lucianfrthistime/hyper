@@ -16,7 +16,7 @@ function SetRandomBackgroundVideo() {
   if (VideoElement) {
     const Source = VideoElement.querySelector("source");
     if (Source) {
-      Source.src = `videos/${RandomVideo}`;
+      Source.src = `/videos/${RandomVideo}`;
       VideoElement.load();
     }
   }

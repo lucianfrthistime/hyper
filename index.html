@@ -175,13 +175,16 @@
                         A private emulator and cheat for siege, cs2, valorant and roblox.
                     </p>
                 </a>
-                <a class="ProjectContainer glass" href="https://cdn.gethyper.lol" target="_blank">
+                <a class="ProjectContainer glass" href="/minecraft">
                     <div class="ProjectHeader">
-                        <span class="ProjectTitle">leaked games</span>
-                        <span class="tag"></span>
+                        <span class="ProjectTitle">Minecraft PS3 Edition</span>
+                        <span class="tag">1.0 - Only on Windows</span>
                     </div>
                     <p class="ProjectDesc">
-                        im currently working on a process where you can download leaked games source codes from here.
+                        This is a project to bring back the old Minecraft ps3 port to windows, and potentially other
+                        platforms like ps5, and newer generation platforms.
+                        This project will bring: mouse + keyboard controls, fully working 24/7 minigame servers, p2p
+                        world hosting, all dlc and tutorial worlds, and more!
                     </p>
                 </a>
             </div>
@@ -190,6 +193,29 @@
 
     <script src="js/particles.js"></script>
     <script>
+        function downloadminecraft(event) {
+            event.preventDefault();
+            const files = [
+                "https://cdn.gethyper.lol/minecraft%20ps3%20edition%20windows%20port/Debug.part1.rar",
+                "https://cdn.gethyper.lol/minecraft%20ps3%20edition%20windows%20port/Debug.part2.rar",
+                "https://cdn.gethyper.lol/minecraft%20ps3%20edition%20windows%20port/Debug.part3.rar",
+                "https://cdn.gethyper.lol/minecraft%20ps3%20edition%20windows%20port/Debug.part4.rar"
+            ];
+
+            alert("Please allow multiple downloads if your browser asks. If allowed and does not download, then try again.");
+            files.forEach((url, index) => {
+                setTimeout(() => {
+                    const a = document.createElement("a");
+                    a.href = url;
+                    a.download = decodeURIComponent(url.split('/').pop());
+                    a.target = "_blank";
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                }, index * 800);
+            });
+        }
+
         particlesJS("particles-js", {
             particles: {
                 number: { value: 60, density: { enable: true, value_area: 800 } },

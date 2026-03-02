@@ -19,11 +19,11 @@ function ToggleMusic() {
             BgVideo.muted = false;
             BgVideo.play();
         }
-        MusicImage.src = "images/Play.png";
+        MusicImage.src = "/images/Play.png";
     } else {
         Music.pause();
         if (BgVideo) BgVideo.pause();
-        MusicImage.src = "images/Pause.png";
+        MusicImage.src = "/images/Pause.png";
     }
 }
 
